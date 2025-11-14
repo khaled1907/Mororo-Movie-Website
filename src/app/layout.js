@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Nav from "./components/nav";
+import PatternIcons from "./components/PatternIcons";
+import AuthSessionProvider from "./components/AuthSessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,12 +21,42 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <body className="bg-[url('/1.jpg')] bg-cover bg-center">
+          <AuthSessionProvider>
+            <main className="flex m-10 rounded-3xl border-2 border-black min-h-[90vh]">
+              <PatternIcons />
+              <Nav />
+              {children}
+            </main>
+          </AuthSessionProvider>
+        </body>
+      </html>
+    </>
+  );
+}
+
+/*import "../styles/globals.css";
+import Layout from "@/sharedComponents/Layout";
+import AuthSessionProvider from "@/components/AuthSessionProvider";
+
+export const metadata = {
+  title: "MoviesPort - the best platform",
+  description: "Discover the best movies on MoviesPort",
+  icons: {
+    icon: "/image.png",
+  },
+};
+
+export default function RootLayout({ children }) {
+  return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <AuthSessionProvider>
+          <Layout>{children}</Layout>
+        </AuthSessionProvider>
       </body>
     </html>
   );
-}
+}*/
