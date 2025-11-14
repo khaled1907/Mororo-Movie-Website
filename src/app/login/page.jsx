@@ -17,7 +17,7 @@ export default function LoginPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black/55 p-10 rounded-tr-3xl rounded-br-3xl gap-8 w-full">
       <h1 className="text-4xl font-bold text-white text-center">
-        Welcome to MoviesPort
+        Welcome to Mororo
       </h1>
       <p className="text-gray-300 text-center max-w-md">
         Sign in with GitHub to access the best movies
