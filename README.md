@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎬 Mororo — Movie Website
 
-## Getting Started
+**Mororo** is a modern **Next.js** movie discovery website with GitHub login, favorites management, and dynamic rendering strategies.
 
-First, run the development server:
+---
+
+## 🌟 Features
+
+- 🔐 **GitHub Authentication** (NextAuth)
+- ⭐ Add / Remove Favorites
+- 🖥️ Rendering: SSR | CSR | SSG | ISR
+- 🎨 TailwindCSS UI with responsive design
+- ✨ Smooth animations using Framer Motion
+- 📦 API routes for movies & favorites
+
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 14 (App Router)  
+- **Auth:** NextAuth (GitHub provider)  
+- **Styling:** TailwindCSS  
+- **Database:** Prisma + PostgreSQL / MySQL / SQLite  
+- **Animations:** Framer Motion  
+- **Deployment:** Vercel  
+
+---
+
+## 🚀 Installation
 
 ```bash
+git clone <repo-url>
+cd mororo
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙ Environment Variables
 
-## Learn More
+Create a `.env.local` file:
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXTAUTH_URL=http://localhost:3000
+GITHUB_ID=your_github_oauth_client_id
+GITHUB_SECRET=your_github_oauth_client_secret
+DATABASE_URL=postgresql://user:pass@localhost:5432/dbname
+TMDB_API_KEY=your_tmdb_api_key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📊 Rendering Strategy
 
-## Deploy on Vercel
+| Page Type        | Render Method | Purpose                               |
+|-----------------|---------------|---------------------------------------|
+| Movie List       | **SSG / ISR**  | Fast & periodically updated           |
+| Movie Details    | **SSR**        | Up-to-date info for all users         |
+| Favorites        | **SSR / CSR**  | Personalized content                  |
+| Interactive UI   | **CSR**        | Instant feedback (buttons, toggles)  |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🗂 API Routes
+
+| Endpoint                | Method | Description                    |
+|-------------------------|--------|--------------------------------|
+| `/api/movies`           | GET    | Fetch movies list              |
+| `/api/movies/:id`       | GET    | Get movie details              |
+| `/api/favorites`        | GET/POST | View or add favorites        |
+| `/api/favorites/:id`    | DELETE | Remove a favorite             |
+| `/api/auth/*`           | ALL    | Authentication endpoints       |
+
+---
+
+## 🎨 UI & Design
+
+- TailwindCSS styling  
+- Clean, responsive layout  
+- Smooth micro-interactions and animations with **Framer Motion**  
+- Accessible buttons and alt text for images  
+
+---
+
+## 📦 Project Structure
+
+```
+app/
+  api/
+  components/
+  styles/
+  ui/
+  page.js
+  layout.js
+
+prisma/
+  schema.prisma
+
+public/
+```
+
+---
+
+## 📡 Deployment
+
+1. Push to GitHub  
+2. Connect to Vercel  
+3. Add env vars in Vercel dashboard  
+4. Deploy — done ✅  
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome. Follow repo conventions and clear commit messages.
+
+---
+
+## 🖼 Screenshots
+
+Add screenshots in `/public/screenshots` and include them here.
+
+---
+
+## 📄 License
+
+MIT (or specify your license)
